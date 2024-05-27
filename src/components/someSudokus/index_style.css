@@ -1,0 +1,8 @@
+.custom-container {
+    max-width: 600px !important;
+}
+
+#createButton {
+    width: auto;
+    background-color: tomato;
+}

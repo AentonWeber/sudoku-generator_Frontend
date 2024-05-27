@@ -1,0 +1,63 @@
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.flex-row {
+    display: flex;
+}
+
+div .button {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div .button.empty {
+    background-color: tomato;
+}
+
+div .button.top-border {
+    border-top-width: 3px;
+}
+
+div .button.bottom-border {
+    border-bottom-width: 3px;
+}
+
+div .button.left-border {
+    border-left-width: 3px;
+}
+
+div .button.right-border {
+    border-right-width: 3px;
+}
+
+#custom-modal-box {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+
+#custom-modal-box img {
+    max-width: 100%;
+    height: auto;
+}
+
+#custom-modal-box p {
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.5rem;
+}
