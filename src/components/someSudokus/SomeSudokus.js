@@ -53,7 +53,7 @@ export default function IndexField() {
                         Sudoku
                     </button>
                 </div>
-                s
+
 
 
                 <div className="container custom-container">
