@@ -33,8 +33,7 @@ export function MyButton({value, rowIndex, colIndex, handleClick, isInitial}) {
         <button
             className={getClassName()}
             style={buttonStyle}
-            onClick={handleClick}
-        >
+            onClick={handleClick}>
             {value}
         </button>
     );

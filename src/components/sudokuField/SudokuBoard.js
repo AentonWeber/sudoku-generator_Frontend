@@ -35,7 +35,6 @@ export default function SudokuFlexbox({userNumber, url}) {
     const sendBoardToBackend = async (board) => {
         const boardArray = board.map(row => row.map(cell => cell.value !== null ? cell.value : 0));
         const boardDTO = {"board": boardArray, "id": null};
-        console.log(JSON.stringify(boardDTO));
 
         try {
             const response = await fetch("http://localhost:8080/check", {
@@ -49,13 +48,10 @@ export default function SudokuFlexbox({userNumber, url}) {
             if (result.correct) {
                 setModalMessage("Das Sudoku ist korrekt gelöst!");
                 setWinMessage(true);
-
             } else {
                 setModalMessage("Das Sudoku ist nicht korrekt gelöst.");
                 setLoseMessage(true);
-
             }
-
         } catch (error) {
             console.error("Error checking board:", error);
         }
@@ -86,15 +82,13 @@ export default function SudokuFlexbox({userNumber, url}) {
                                           value={board[rowIndex][colIndex].value}
                                           isInitial={true}
                                           rowIndex={rowIndex}
-                                          colIndex={colIndex}
-                                />
+                                          colIndex={colIndex}/>
                             ) : <MyButton
                                 key={colIndex}
                                 value={board[rowIndex][colIndex].value}
                                 rowIndex={rowIndex}
                                 colIndex={colIndex}
-                                handleClick={() => handleClick(rowIndex, colIndex)}
-                            />
+                                handleClick={() => handleClick(rowIndex, colIndex)}/>
                         ))}
                     </div>
                 ))}
@@ -106,20 +100,14 @@ export default function SudokuFlexbox({userNumber, url}) {
                                  id="custom-modal-box">
                                 <img
                                     src="https://media.tenor.com/GNiThyoqaXAAAAAi/%E3%81%8A%E3%82%81%E3%81%A7%E3%81%A8%E3%81%86-%E5%AC%89%E3%81%97%E3%81%84.gif"
-                                    alt="Gratulation"
-                                />
+                                    alt="Gratulation"/>
                                 <p className={"has-text-weight-bold is-size-1 "}>{modalMessage}</p>
                                 <ConfettiComponent/>
-
-
                             </div>
-
                         </div>
                         <button className="modal-close is-large" aria-label="close" onClick={closeModal}></button>
                     </div>
                 )}
-
-
                 {loseMessage && (
                     <div className={`modal ${loseMessage ? 'is-active' : ''}`}>
                         <div className="modal-background" onClick={closeModal}></div>
@@ -129,16 +117,12 @@ export default function SudokuFlexbox({userNumber, url}) {
                                 <p className={"has-text-weight-bold is-size-1 "}>{modalMessage}</p>
                                 <img
                                     src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExcXJzeHdpdDNyY2t1cTViaDMyOTUzMjFoeXVqaGhydjM5azlwOXR2dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/10h8CdMQUWoZ8Y/giphy.gif"
-                                    alt="looser"
-                                />
+                                    alt="looser"/>
                             </div>
-
                         </div>
                         <button className="modal-close is-large" aria-label="close" onClick={closeModal}></button>
                     </div>
                 )}
-
-
             </div>
         ) : (
             <p>Loading...</p>
@@ -149,8 +133,8 @@ export default function SudokuFlexbox({userNumber, url}) {
 const ConfettiComponent = () => {
     return (
         <Confetti
-            width={window.innerWidth * 0.36}
-            height={window.innerHeight * 0.75}
+            width={window.innerWidth * 0.32}
+            height={window.innerHeight * 0.63}
         />
     );
 }

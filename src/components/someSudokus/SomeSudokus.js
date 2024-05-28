@@ -12,6 +12,18 @@ export default function IndexField() {
     const [useNumber, setUseNumber] = useState(null);
     const [backToIndexFlag, setBackToIndexFlag] = useState(false);
 
+    const handleButtonClick = (id) => {
+        setCurrentId(id);
+        setShowSudokuBoard(true);
+    };
+    const generateSudoku = () => {
+        setShowGeneratedSudokuBoard(true);
+    }
+    const backToIndex = () => {
+        setShowGeneratedSudokuBoard(false);
+        setShowSudokuBoard(false);
+        setBackToIndexFlag(!backToIndexFlag);
+    }
 
     useEffect(() => {
         fetch("http://localhost:8080/idList")
@@ -29,22 +41,6 @@ export default function IndexField() {
             .catch(err => console.error('Fetch error:', err));
     }, [backToIndexFlag]);
 
-    const handleButtonClick = (id) => {
-        setCurrentId(id);
-        setShowSudokuBoard(true);
-    };
-
-    const generateSudoku = () => {
-        setShowGeneratedSudokuBoard(true);
-    }
-
-    const backToIndex = () => {
-        setShowGeneratedSudokuBoard(false);
-        setShowSudokuBoard(false);
-        setBackToIndexFlag(!backToIndexFlag);
-    }
-
-
     return (
         <> {(!showSudokuBoard && !showGeneratedSudokuBoard) &&
             <div>
@@ -53,30 +49,23 @@ export default function IndexField() {
                         Sudoku
                     </button>
                 </div>
-
-
-
                 <div className="container custom-container">
                     <div className="columns is-multiline is-centered">
                         {idList.map((id, index) => (
-                                <div className="column is-centered is-flex is-justify-content-center" key={index}>
-                                    <IndexButton value={index + 1} onClick={() => handleButtonClick(id)}/>
-                                </div>
-
-                            )
-                        )}
+                            <div className="column is-centered is-flex is-justify-content-center" key={index}>
+                                <IndexButton value={index + 1} onClick={() => handleButtonClick(id)}/>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>
         }
             <div>
                 {showSudokuBoard &&
-
                     (<SudokuBoard
                         userNumber={useNumber}
                         url={`http://localhost:8080/take?id=${currentId}`}/>)
                 }
-
                 {showSudokuBoard && (
                     <>
                         <NumberField setNumber={setUseNumber}/>
@@ -88,12 +77,10 @@ export default function IndexField() {
             </div>
             <div>
                 {showGeneratedSudokuBoard &&
-
                     (<SudokuBoard
                         userNumber={useNumber}
                         url={`http://localhost:8080/generate`}/>)
                 }
-
                 {showGeneratedSudokuBoard && (
                     <>
                         <NumberField setNumber={setUseNumber}/>
@@ -101,18 +88,8 @@ export default function IndexField() {
                             <button className="button" id="createButton" onClick={backToIndex}>Back</button>
                         </div>
                     </>
-
                 )}
-
             </div>
-
-
         </>
-    )
-        ;
+    );
 }
-/*
-<button className="button" onClick={handleButtonClick}>
-    Load Board
-</button>
-*/

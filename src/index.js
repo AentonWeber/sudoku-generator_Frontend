@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
 import Header from "../src/components/header/Header.js";
 import SomeSudokus from "../src/components/someSudokus/SomeSudokus.js";
@@ -8,13 +8,10 @@ import "../src/components/sudokuField/styleField.css";
 
 function Page() {
 
-
-
     return (
         <div>
             <Header />
             <SomeSudokus />
-
         </div>
     );
 }
