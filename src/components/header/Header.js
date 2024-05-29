@@ -45,9 +45,8 @@ export default function Header() {
                                 </ul>
                             </p>
                             <p className="is-size-6 has-text-left">
-                                Du kannst eine Zahlen im unten auswählen und mit Klick auf die Orangen felder sie dann
-                                eintragen.
-                                Es ist nur möglich blaue Felder zu Löschen oder zu überschreiben.
+                                Du kannst eine Zahl unten auswählen und durch Klick auf die orangenen Felder eingeben.
+                                Es ist nur möglich, blaue Felder zu löschen oder zu überschreiben
                             </p>
                         </div>
                     </div>
